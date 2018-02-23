@@ -15,25 +15,91 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4" id="sketch-holder">
+      <div class="col-md-4 text-center fixed-top" id="sketch-holder"></div>
         <!-- Our Sketch will go here -->
+      <div class="col-md-4">
+        <!-- Place holder to hold the title, description and code to the right 1/2 -->
       </div>
       <div class="col-md-8">
         <!-- Use find and Replace to replace p5jsTemplate with the title of the Lab-->
-        <h1>p5jsTemplate</h1>
+        <h1>Zoog II</h1>
         <!-- Add a date, period and description of the lab -->
-        <h4>First Name, Last name</h4>
-        <p>Date: </p>
-        <p>Period: </p>
-        <p>Description: </p>
+        <h4>Brad, Crockett</h4>
+        <p>Date: 10/12/2017</p>
+        <p>Period: 1</p>
+        <p>Description: Zoog follows the mouse and changes colors.</p>
         <p><a href="https://p5js.org/reference" target="_blank">p5js Reference Material</a></p>
+        <br>
+
+        <!-- Explain the CS concepts used-->
+        <h4>C.S. Concepts</h4>
+        <p>...Write a few sentences about what concepts you used...</p>
+
+        <br>
+        <!-- Our Code will go here -->
+        <div id="code">
+        <figure>
+          <figcaption>The Code</figcaption>
+            <pre>
+              <code class="pretty-printed">
+                <!-- Paste your completed code here -->
+//Global Variables
+var centerX=200;
+var centerY=200;
+
+//Setup Loop runs once at the beginning of the sketch
+function setup() { 
+  //create the canvas of a particular size
+  var canvas = createCanvas(400, 400);
+  //Give the canvas an id to position it in the HTML
+  canvas.parent('sketch-holder');
+  background(220);
+
+    ellipseMode(CENTER);
+  rectMode(CENTER);
+} 
+
+//Draw loop runs over and over
+function draw() { 
+// redraw the background to clear the last zoog
+background(mouseX,mouseY,(mouseX+mouseY)/2);
+
+// Body
+stroke(0);
+fill(mouseX);
+rect(mouseX,mouseY, 20, 100);
+
+// Head
+fill(mouseY/2);
+ellipse(mouseX, mouseY-50, 60, 60); 
+
+// Eyes
+fill(100,20,random(0,255));
+ellipse(mouseX-15, mouseY-55, 16, 32); 
+ellipse(mouseX+15, mouseY-55, 16, 32);
+
+// Legs
+stroke(0);
+line(mouseX-10, mouseY+50, 0, 400);
+line(mouseX+10, mouseY+50, 400, 400);
+
+//Arms
+stroke(0);
+line(mouseX-10, mouseY-5, 0, 0);
+line(mouseX+10, mouseY-5, 400, 0);
+}
+              </code>
+            </pre>
+        </figure>
+
       </div>
     </div>
+
+
+      </div>
+
     
-<div class="row, center-text">
-      
-    </div>
-    <script  src="js/index.js"></script>
+    <script  src="js/index1.js"></script>
 
   </div>
 </body>
